@@ -1,8 +1,16 @@
-=begin
-Write your code for the 'Sieve' exercise in this file. Make the tests in
-`sieve_test.rb` pass.
+class Sieve
+  def initialize(limit)
+    @limit = limit
+    @range = (2..limit).to_a
+  end
 
-To get started with TDD, see the `README.md` file in your
-`ruby/sieve` directory.
-=end
-
+  def primes
+    primes = @range
+    primes.each do |i|
+      2.upto @limit / 2 do |j|
+        primes -= [i * j]  
+      end
+    end
+    primes
+  end
+end
